@@ -1,5 +1,6 @@
 <?php 
 
+//ana hena mest5dm name m3a algroup 3lshan aw7d kol ely haygy b3dhom be start mo3ena
 Route::prefix('dashboard')->name('dashboard.')->group(function(){
 
    /* Route::get('/check', function () {
@@ -7,6 +8,8 @@ Route::prefix('dashboard')->name('dashboard.')->group(function(){
         return view('dashboard.index');
     });*/
 
-    Route::get('index', 'DashboardController@index')->name('dashboard.index');
+
+    //ana bast5dm al name 3lshan lma agy acall route de fe href fil view masln 
+    Route::get('index', 'DashboardController@index')->name('index');
 
 });
