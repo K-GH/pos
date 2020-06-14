@@ -10,9 +10,11 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        // $this->call(UsersTableSeeder::class);
-        
+    {   
+        // for LaratrustSeeder package
         $this->call(LaratrustSeeder::class);
+        //for UsersTableSeeder
+        $this->call(UsersTableSeeder::class);
+      
     }
 }
