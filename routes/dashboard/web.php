@@ -15,6 +15,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         
             //ana bast5dm al name 3lshan lma agy acall route de fe href fil view masln 
             Route::get('index', 'DashboardController@index')->name('index');
+
+            //user route
+            Route::resource('users', 'UserController')->except('show');
         
         });
 

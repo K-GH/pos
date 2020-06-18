@@ -3,8 +3,8 @@
 
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>
-            @lang('site.dashboard')
+        <h1>blank page
+            <small>it all start here</small>
         </h1>
 
         <ol class="breadcrumb">
@@ -13,15 +13,7 @@
     </section>
 
     <section class="content">
-        <div class="box box-primary">
-
-            <div class="box-header">
-                <h3 class="box-title">@lang('site.users')</h3>
-            </div>
-            <div class="box-body">
-
-            </div>
-        </div>
+        <h1>this is index of dashboard</h1>
     </section>
         
 </div>
