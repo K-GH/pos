@@ -8,6 +8,13 @@ return [
     'add'=>'اضف',
     'edit'=>'تعديل',
     'delete'=>'حذف',
+    'search'=>'بحث',
+    'password'=>'كلمة المرور',
+    'password_confirmation'=>'تأكيد كلمة المرور',
+    
+    'added_successfully'=>'تم اضافة البيانات بنجاح',
+    'updated_successfully'=>'تم تعديل البيانات بنجاح',
+    'deleted_successfully'=>'تم حذف البيانات بنجاح',
 
     'first_name'=>'الاسم الاول',
     'last_name'=>'الاسم الاخير',
