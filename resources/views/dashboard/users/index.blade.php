@@ -19,7 +19,8 @@
 
             <div class="box-header with-boarder ">
                 <h3 class="box-title" style="margin-bottom: 15px">@lang('site.users')</h3>
-                <form action="">
+
+                <form action="{{route('dashboard.users.index')}}" method="GET">
 
                     <div class="row">
 

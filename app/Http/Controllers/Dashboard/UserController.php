@@ -18,10 +18,27 @@ class UserController extends Controller
         $this->middleware(['permission:edit_users'])->only('edit');
         $this->middleware(['permission:delete_users'])->only('destroy');
     }
-    public function index()
-    {
-        //$users=User::all();
-        $users=User::whereRoleIs('admin')->get();
+    public function index(Request $request)
+    {   
+        /*if($request->search){
+            //dd($request->all());
+            $users= User::where('first_name', 'like', '%'.$request->search.'%')
+                        ->orWhere('last_name', 'like', '%'.$request->search.'%')
+                        ->get();
+        }else{
+            //$users=User::all();
+             $users=User::whereRoleIs('admin')->get();
+        }*/
+
+        //another advanced way for search
+        //when like if , why i use it ? to check if serach 
+        $users=User::whereRoleIs('admin')->when($request->search, function($query) use($request){//why use use($request)? to access request from this outside scope
+                return $query->where('first_name','like','%'.$request->search.'%')
+                             ->orWhere('last_name','like','%'.$request->search.'%');
+ 
+          
+        })->get();
+        
         return view('dashboard.users.index',compact('users'));
     }
 
