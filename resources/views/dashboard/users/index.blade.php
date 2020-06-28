@@ -73,7 +73,7 @@
                                                 <button type="submit" class="btn btn-danger btn-sm">@lang('site.delete')</button>
                                            </form>  
                                     @else
-                                           <button class="btn btn-danger disabled"> @lang('site.delete') </button>
+                                           <button class="btn btn-danger disabled btn-sm"> @lang('site.delete') </button>
                                     @endif
                                     </td>
                                 </tr>

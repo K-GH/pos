@@ -50,12 +50,23 @@ class UserController extends Controller
    
     public function edit(User $user)
     {
-        //
+        return view('dashboard.users.edit', compact('user'));
     }
 
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>'required',
+        ]);
+        
+        $request_data=$request->except(['permissions']);
+        $user->update($request_data);
+        $user->syncPermissions($request->permissions);//add this in db link between users and roles
+        session()->flash('success', __('site.updated_successfully'));
+
+        return redirect()->route('dashboard.users.index');
     }
 
 

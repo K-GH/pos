@@ -188,7 +188,7 @@
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-                           {{-- <span class="hidden-xs">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span> --}}
+                           <span class="hidden-xs">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span> 
                         </a>
                         <ul class="dropdown-menu">
 
@@ -197,7 +197,7 @@
                                 <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
 
                                 <p>
-                                   {{--{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}--}}
+                                   {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
                                     <small>Member since 2 days</small>
                                 </p>
                             </li>
