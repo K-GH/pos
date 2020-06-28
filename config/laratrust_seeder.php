@@ -6,6 +6,7 @@ return [
             'users' => 'c,r,u,d',
 
         ],
+        'admin'=>[]
 
 
          /*

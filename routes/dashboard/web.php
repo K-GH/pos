@@ -5,7 +5,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
     
         //ana hena mest5dm name m3a algroup 3lshan aw7d kol ely haygy b3dhom be start mo3ena
-        Route::prefix('dashboard')->name('dashboard.')->group(function(){
+        Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function(){
 
             /* Route::get('/check', function () {
                 //return 'this is dashboard';

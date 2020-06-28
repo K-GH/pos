@@ -22,7 +22,9 @@ class UserController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
+        //Dump and Die => dd()
+        //dd($request->all());
         $request->validate([
             'first_name'=>'required',
             'last_name'=>'required',
@@ -31,9 +33,11 @@ class UserController extends Controller
             
         ]);
         
-        $request_data=$request->except(['password']);
+        $request_data=$request->except(['password','password_confirmation','permissions']);
         $request_data['password']=bcrypt($request->password);
         $user=User::create($request_data);
+        $user->attachRole('admin');//get this from laratrust_seeders.php
+        $user->syncPermissions($request->permissions);//add this in db link between users and roles
 
         session()->flash('success', __('site.added_successfully'));
 
