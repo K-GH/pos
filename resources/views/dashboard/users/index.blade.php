@@ -18,14 +18,14 @@
         <div class="box box-primary">
 
             <div class="box-header with-boarder ">
-                <h3 class="box-title" style="margin-bottom: 15px">@lang('site.users')</h3>
+                 <h3 class="box-title" style="margin-bottom: 15px">@lang('site.users') <small>{{$users->total()}}</small></h3>
 
                 <form action="{{route('dashboard.users.index')}}" method="GET">
 
                     <div class="row">
 
                         <div class="col-md-4">
-                            <input type="text" name="search" class="form-control" placeholder="@lang('site.search')">
+                              <input type="text" name="search" class="form-control" placeholder="@lang('site.search')" value="{{request()->search}}">
                         </div>
 
                         <div class="col-md-4">
@@ -81,6 +81,8 @@
                             @endforeach
                         </tbody>
                     </table><!-- end of table --> 
+                    {{-- links() to run paginate from userscontroller , appends(request()->query) da 3lshan yafdal append key of search mat3'yrash m3a links --}}
+                    {{$users->appends(request()->query())->links()}}
                   
               @else
                   <h2>@lang('site.no_data_found')</h2>
