@@ -71,7 +71,7 @@
                                             <form action="{{route('dashboard.users.destroy', $user->id)}}" method="POST" style="display: inline-block">
                                                 {{ csrf_field() }}
                                                 {{ method_field('delete') }}
-                                                <button type="submit" class="btn btn-danger btn-sm" >  <i class="fa fa-trash"></i>@lang('site.delete')</button>
+                                                <button type="submit" class="btn btn-danger btn-sm delete" >  <i class="fa fa-trash"></i>@lang('site.delete')</button>
                                            </form>  
                                     @else
                                            <button class="btn btn-danger  btn-sm disabled"> <i class="fa fa-trash"></i> @lang('site.delete') </button>

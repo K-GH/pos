@@ -15,6 +15,10 @@ return [
     'password'=>'كلمة المرور',
     'password_confirmation'=>'تأكيد كلمة المرور',
 
+    'yes'=>'نعم',
+    'no'=>'لأ',
+    'confirm_delete'=>'تأكيد الحذف',
+
     'added_successfully'=>'تم اضافة البيانات بنجاح',
     'updated_successfully'=>'تم تعديل البيانات بنجاح',
     'deleted_successfully'=>'تم حذف البيانات بنجاح',

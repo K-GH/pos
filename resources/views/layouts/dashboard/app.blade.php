@@ -279,7 +279,7 @@
             radioClass: 'iradio_minimal-blue'
         });
 
-        //delete
+        //delete btn
         $('.delete').click(function (e) {
 
             var that = $(this)
