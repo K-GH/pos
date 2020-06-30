@@ -18,8 +18,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name','last_name', 'email', 'password',
+        'first_name','last_name', 'email', 'password','image',
     ];
+
+    //to call it on view like users.index 
+    //appends getImagePathAttribute() on down
+    protected $appends=['image_path'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -48,5 +52,12 @@ class User extends Authenticatable
     public function getLastNameAttribute($value)
     {
         return ucfirst($value);
+    }
+
+    //that access image_path by getImagePathAttribute() builtIn
+    //ana 3mlt al7rka de bld ma3od akrr url fil view
+    public function getImagePathAttribute()
+    {
+        return asset('uploads/users_images/'.$this->image);
     }
 }

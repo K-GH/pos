@@ -15,6 +15,7 @@ return [
     'password'=>'كلمة المرور',
     'password_confirmation'=>'تأكيد كلمة المرور',
 
+
     'yes'=>'نعم',
     'no'=>'لأ',
     'confirm_delete'=>'تأكيد الحذف',
@@ -27,5 +28,6 @@ return [
     'first_name'=>'الاسم الاول',
     'last_name'=>'الاسم الاخير',
     'email'=>'البريد الالكترونى',
+    'image'=>'صورة',
     'action'=>'اكشن',
 ];
