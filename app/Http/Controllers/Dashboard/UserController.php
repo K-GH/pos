@@ -36,11 +36,14 @@ class UserController extends Controller
 
         //another advanced way for search
         //when like if , why i use it ? to check if serach 
-        $users=User::whereRoleIs('admin')->when($request->search, function($query) use($request){//why use use($request)? to access request from this outside scope
+        $users=User::whereRoleIs('admin')->where(function($q) use($request){
+
+            return $q->when($request->search, function($query) use($request){
+                
                 return $query->where('first_name','like','%'.$request->search.'%')
-                             ->orWhere('last_name','like','%'.$request->search.'%');
- 
-          })->latest()->paginate(5); 
+                ->orWhere('last_name','like','%'.$request->search.'%');
+            });
+        })->latest()->paginate(5);
        // })->get();
         
         return view('dashboard.users.index',compact('users'));

@@ -83,7 +83,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <button type="submit" btn btn-primary"> <i class="fa fa-edit"></i> @lang('site.edit') </button>
+                        <button type="submit" class="btn btn-primary"> <i class="fa fa-edit"></i> @lang('site.edit') </button>
                     </div>
                 </form>
            
