@@ -27,13 +27,20 @@
                <form action="{{ route('dashboard.categories.store')}}" method="POST" >
                     {{ csrf_field() }}
                     {{ method_field('post') }}
-                    <div class="form-group">
-                        <label> @lang('site.name') </label>
-                        <input type="text" name="name" class="form-control" value="{{ old('name') }} " >
-                    </div>
+
+                    {{-- get data from config\translatable--}}
+                    @foreach (config('translatable.locales') as $locale)
+                        <div class="form-group">
+                            {{-- like site.ar.name--}}
+                            <label> @lang('site.'.$locale.'.name') </label>
+                            {{--ar[name]--}}
+                            <input type="text" name="{{$locale}}[name]" class="form-control" value="{{ old($locale.'.name') }} " >
+                        </div>
                     
+                    @endforeach
+                 
                     <div class="form-group">
-                        <button type="submit" btn btn-primary"> <i class="fa fa-plus"></i> @lang('site.add') </button>
+                        <button type="submit" class=" btn btn-primary"> <i class="fa fa-plus"></i> @lang('site.add') </button>
                     </div>
                 </form>
            

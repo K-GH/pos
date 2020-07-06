@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
@@ -42,9 +43,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required|unique:categories,name',
-        ]);
+        $rules=[];
+        foreach (config('translatable.locales') as $locale) {
+          
+            //name ar or en are required and unique
+            $rules +=[$locale.'.name' => ['required',Rule::unique('category_translations','name')]];
+        }
+        $request->validate($rules);
+
+       /* $request->validate([
+            'ar.name'=>'required|unique:category_translations,name',
+        ]);*/
 
         Category::create($request->all());
         session()->flash('success', __('site.added_successfully'));
@@ -72,9 +81,17 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         
-        $request->validate([
-            'name'=>'required|unique:categories,name,' . $category->id,
-        ]);
+        $rules=[];
+        foreach (config('translatable.locales') as $locale) {
+          
+            //name ar or en are required and unique
+            $rules +=[$locale.'.name' => ['required',Rule::unique('category_translations','name')->ignore($category->id,'category_id')]];
+        }
+        $request->validate($rules);
+      
+       /* $request->validate([
+            'ar.name'=>'required|unique:category_translations,name,'.$category->id,
+        ]);*/
 
         $category->update($request->all());
         session()->flash('success', __('site.updated_successfully'));
