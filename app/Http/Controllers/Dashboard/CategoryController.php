@@ -84,7 +84,7 @@ class CategoryController extends Controller
         $rules=[];
         foreach (config('translatable.locales') as $locale) {
           
-            //name ar or en are required and unique
+            //name ar or en are required and unique and skip this id that selected
             $rules +=[$locale.'.name' => ['required',Rule::unique('category_translations','name')->ignore($category->id,'category_id')]];
         }
         $request->validate($rules);
