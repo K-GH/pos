@@ -320,6 +320,7 @@
         
          });
 
+         //ckeditor dir
         CKEDITOR.config.language =  "{{ app()->getLocale() }}";
 
     });//end of ready

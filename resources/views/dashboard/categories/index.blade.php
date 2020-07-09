@@ -27,7 +27,7 @@
                         <div class="col-md-4">
                               <input type="text" name="search" class="form-control" placeholder="@lang('site.search')" value="{{request()->search}}">
                         </div>
-
+                        
                         <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary"> <li class="fa fa-search"></li> @lang('site.search') </button>
                                 @if (auth()->user()->hasPermission('create_categories'))
@@ -49,6 +49,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>@lang('site.name')</th>
+                                <th>@lang('site.products_count')</th>
+                                <th>@lang('site.related_products')</th>
                                 <th>@lang('site.action')</th>
                             </tr>
                         </thead>
@@ -57,6 +59,8 @@
                                 <tr>
                                     <td>{{ $index+1 }}</td>
                                     <td>{{ $category->name }}</td>
+                                    <td>{{ $category->products->count() }}</td>
+                                    <td><a href="{{ route('dashboard.products.index', ['category_id'=>$category->id]) }}" class="btn btn-info btn-sm">@lang('site.related_products')</a></td>
                                     
                                    
                                     <td>
