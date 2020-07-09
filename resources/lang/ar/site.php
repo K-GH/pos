@@ -55,7 +55,9 @@ return [
     'related_products'=>'المنتجات المرتبطة',
     'description'=>'الوصف',
 
-    
+    'clients'=>'العملاء',
+    'phone'=>'رقم الهاتف',
+    'address'=>'العنوان',
     
 
 ];
