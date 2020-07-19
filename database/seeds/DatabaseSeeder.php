@@ -15,6 +15,12 @@ class DatabaseSeeder extends Seeder
         $this->call(LaratrustSeeder::class);
         //for UsersTableSeeder
         $this->call(UsersTableSeeder::class);
+        //for CategoriesTableSeeder
+        $this->call(CategoriesTableSeeder::class);
+        //for ProductsTableSeeder 
+        $this->call(ProductsTableSeeder::class);
+        //for ClientsTableSeeder 
+        $this->call(ClientsTableSeeder::class);
       
     }
 }

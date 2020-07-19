@@ -1,115 +1,96 @@
 $(document).ready(function () {
     
     //add product btn
-    $('.add-product-btn').on('click', function (e) {
+    $('.add-product-btn').on('click' , function(e){
+        // alert('add product btn work');
+        e.preventDefault(); 
+        var name= $(this).data('name');
+        var id =$(this).data('id');
+        //format price with jquery number
+        var price = $.number($(this).data('price'),2);
 
-        e.preventDefault();
-        var name = $(this).data('name');
-        var id = $(this).data('id');
-        var price = $.number($(this).data('price'), 2);
-
+        //alert(name+ '' + price);
         $(this).removeClass('btn-success').addClass('btn-default disabled');
 
-        var html =
-            `<tr>
-                <td>${name}</td>
-                <td><input type="number" name="products[${id}][quantity]" data-price="${price}" class="form-control input-sm product-quantity" min="1" value="1"></td>
-                <td class="product-price">${price}</td>               
-                <td><button class="btn btn-danger btn-sm remove-product-btn" data-id="${id}"><span class="fa fa-trash"></span></button></td>
-            </tr>`;
+       // <input type="hidden" name="product_ids[]" value="${id}">--></input>
+         var html =`
+                    <tr>
+                        <td>${name}</td>
+                        <td> <input type='number'  name="product_ids[${id}][quantity]" data-price="${price}" class="form-control input-sm product-quantity" min ="1" value="1"   > </td>
+                        <td class="product-price"> ${price} </td>
+                        <td> <button class="btn btn-danger btn-sm remove-product-btn" data-id="${id}"><span class="fa fa-trash"></span></button> </td>
+                    </tr>
+         `;
 
         $('.order-list').append(html);
-
-        //to calculate total price
+        //after add call
         calculateTotal();
+
+       
     });
 
-    //disabled btn
+    //any disabled btn
     $('body').on('click', '.disabled', function(e) {
 
         e.preventDefault();
 
-    });//end of disabled
-
-    //remove product btn
+    });
+    //remove product btn when clicked , remove btn-default disabled and add btn-success ,also remove this row
     $('body').on('click', '.remove-product-btn', function(e) {
 
         e.preventDefault();
-        var id = $(this).data('id');
+       // alert('remove clicked');
+       var id =$(this).data('id');
+       //console.log(id);
+       $('#product-'+id).removeClass('btn-default disabled').addClass('btn-success');
+       //remove a2rab row ('tr')
+       $(this).closest('tr').remove();
+       //after remove call 
+       calculateTotal();
 
-        $(this).closest('tr').remove();
-        $('#product-' + id).removeClass('btn-default disabled').addClass('btn-success');
-
-        //to calculate total price
-        calculateTotal();
-
-    });//end of remove product btn
+    });
 
     //change product quantity
-    $('body').on('keyup change', '.product-quantity', function() {
-
-        var quantity = Number($(this).val()); //2
-        var unitPrice = parseFloat($(this).data('price').replace(/,/g, '')); //150
-        console.log(unitPrice);
-        $(this).closest('tr').find('.product-price').html($.number(quantity * unitPrice, 2));
-        calculateTotal();
-
-    });//end of product quantity change
-
-    //list all order products
-    $('.order-products').on('click', function(e) {
+    $('body').on('keyup change','.product-quantity', function(e){
 
         e.preventDefault();
+       // alert($(this).val());
+        var quantity=parseInt($(this).val());
+        //alert(quantity);
+       //var unitPrice = parseInt($(this).closest('tr').find('.product-price').html());
+       //alert(unitPrice);
+       var unitPrice =parseFloat($(this).data('price').replace(/,/g,''));
+       var totalQuantityPrice = quantity * unitPrice;
+       $(this).closest('tr').find('.product-price').html(totalQuantityPrice);
+      
+       calculateTotal();
 
-        $('#loading').css('display', 'flex');
-        
-        var url = $(this).data('url');
-        var method = $(this).data('method');
-        $.ajax({
-            url: url,
-            method: method,
-            success: function(data) {
+    });
 
-                $('#loading').css('display', 'none');
-                $('#order-product-list').empty();
-                $('#order-product-list').append(data);
-
-            }
-        })
-
-    });//end of order products click
-
-    //print order
-    $(document).on('click', '.print-btn', function() {
-
-        $('#print-area').printThis();
-
-    });//end of click function
 
 });//end of document ready
 
-//calculate the total
-function calculateTotal() {
+function calculateTotal(){
 
     var price = 0;
 
-    $('.order-list .product-price').each(function(index) {
-        
-        price += parseFloat($(this).html().replace(/,/g, ''));
+    //each like loop
+    $('.order-list .product-price').each(function(index){
 
-    });//end of product price
+        price += parseFloat($(this).html().replace(/,/g,''));
 
-    $('.total-price').html($.number(price, 2));
+    });
+    //alert(price);
+    $('.total-price').html($.number(price,2));
 
-    //check if price > 0
-    if (price > 0) {
-
-        $('#add-order-form-btn').removeClass('disabled')
-
-    } else {
-
-        $('#add-order-form-btn').addClass('disabled')
-
-    }//end of else
-
-}//end of calculate total
+    $('#product-quantity')
+    
+    //check if price > 0 and remove or add class disabled
+    if(price > 0)
+    {
+        $('#add-order-form-btn').removeClass('disabled');
+    }else{
+        $('#add-order-form-btn').addClass('disabled');
+    }
+   
+}//end of calculate_total

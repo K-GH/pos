@@ -2,9 +2,13 @@
 
 //bacall 3ala al array blshakl da @lang('site.dashboard') fil view
 return [
+
     'dashboard'=>'الرئيسة',
     'users'=>'المشرفين',
+
     'no_data_found'=>'للاسف لا يوجد اى سجلات',
+    'no_records'=>'للاسف لا يوجد اى سجلات',
+
     'add'=>'اضف',
     'create'=>'اضافة',
     'edit'=>'تعديل',
@@ -47,6 +51,7 @@ return [
     ],
 
     'products'=>'المنتجات',
+    'product'=>'المنتج',
     'purchase_price'=>'سعر الشراء',
     'sale_price'=>'سعر البيع',
     'stock'=>'المخزون',
@@ -54,10 +59,16 @@ return [
     'products_count'=>'عدد المنتجات',
     'related_products'=>'المنتجات المرتبطة',
     'description'=>'الوصف',
+   
 
     'clients'=>'العملاء',
     'phone'=>'رقم الهاتف',
     'address'=>'العنوان',
+
+    'orders'=>'الطلبات',
+    'add_order'=>'اضف طلب',
+    'quantity'=>'الكمية',
+    'total'=>'الاجمالى',
     
 
 ];

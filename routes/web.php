@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
   //  return view('welcome');
-  return redirect()->route('dashboard.index');
+  return redirect()->route('dashboard.welcome');
 });
 
 Auth::routes(['register'=>false]);

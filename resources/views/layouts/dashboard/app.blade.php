@@ -254,7 +254,7 @@
 {{--ckeditor standard--}}
 <script src="{{ asset('dashboard_files/plugins/ckeditor/ckeditor.js') }}"></script>
 
-{{--jquery number--}}
+{{--jquery number --}}
 <script src="{{ asset('dashboard_files/js/jquery.number.min.js') }}"></script>
 
 {{--print this--}}
@@ -264,7 +264,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="{{ asset('dashboard_files/plugins/morris/morris.min.js') }}"></script>
 
-{{--custom js--}}
+{{-- custom js --}}
 <script src="{{ asset('dashboard_files/js/custom/image_preview.js') }}"></script>
 <script src="{{ asset('dashboard_files/js/custom/order.js') }}"></script>
 
@@ -306,7 +306,7 @@
         });//end of delete
 
         // // image preview
-         $(".image").change(function () {
+        /* $(".image").change(function () {
         
              if (this.files && this.files[0]) {
                  var reader = new FileReader();
@@ -318,7 +318,7 @@
                  reader.readAsDataURL(this.files[0]);
              }
         
-         });
+         });*/
 
          //ckeditor dir
         CKEDITOR.config.language =  "{{ app()->getLocale() }}";

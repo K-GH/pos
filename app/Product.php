@@ -22,6 +22,13 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class,'product_order');
+    }
+
+
     //that access image_path by getImagePathAttribute() builtIn
     //ana 3mlt al7rka de bld ma3od akrr url fil view
     public function getImagePathAttribute()

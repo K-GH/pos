@@ -9,12 +9,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
             /* Route::get('/check', function () {
                 //return 'this is dashboard';
-                return view('dashboard.index');
+                return view('dashboard.welcome');
             });*/
         
         
             //ana bast5dm al name 3lshan lma agy acall route de fe href fil view masln 
-            Route::get('index', 'DashboardController@index')->name('index');
+            Route::get('/', 'WelcomeController@index')->name('welcome');
 
             //user route
             Route::resource('users', 'UserController')->except('show');
@@ -27,6 +27,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
              //Clients route
              Route::resource('clients', 'ClientController')->except('show');
+
+            //Clients order route
+            Route::resource('clients.orders', 'Client\OrderController')->except('show');
+            
+            //general order route
+            Route::resource('orders', 'OrderController')->except('show');
+
+
         
         });
 

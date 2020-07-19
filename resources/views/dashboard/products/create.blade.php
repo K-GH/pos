@@ -9,7 +9,7 @@
         </h1>
 
         <ol class="breadcrumb">
-        <li> <a href="{{  route('dashboard.index') }}"> <i class="fa fa-dashboard">     </i> @lang('site.dashboard') </a> </li>
+        <li> <a href="{{  route('dashboard.welcome') }}"> <i class="fa fa-dashboard">     </i> @lang('site.dashboard') </a> </li>
         <li> <a href="{{  route('dashboard.products.index') }}">  @lang('site.products') </a> </li>
         <li class="active">   </i> @lang('site.add')</li>
         </ol>
@@ -65,11 +65,11 @@
                     </div>
                     <div class="form-group">
                         <label> @lang('site.purchase_price') </label>
-                        <input type="number" name="purchase_price" class="form-control" value="{{ old('purchase_price')}} ">
+                        <input type="number" name="purchase_price" step="0.01" class="form-control" value="{{ old('purchase_price')}} ">
                     </div>
                     <div class="form-group">
                         <label> @lang('site.sale_price') </label>
-                        <input type="number" name="sale_price" class="form-control" value="{{ old('sale_price')}}">
+                        <input type="number" name="sale_price" step="0.01" class="form-control" value="{{ old('sale_price')}}">
                     </div>
                     <div class="form-group">
                         <label> @lang('site.stock') </label>
