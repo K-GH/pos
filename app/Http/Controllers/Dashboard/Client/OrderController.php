@@ -59,6 +59,9 @@ class OrderController extends Controller
            'total_price'=>$total_price,
        ]);
 
+       session()->flash('success', __('site.added_successfully'));
+       return redirect()->route('dashboard.clients.index');
+
 
   /*   
         //first solution 
