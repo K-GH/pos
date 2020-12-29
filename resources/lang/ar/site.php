@@ -59,6 +59,8 @@ return [
     'products_count'=>'عدد المنتجات',
     'related_products'=>'المنتجات المرتبطة',
     'description'=>'الوصف',
+    
+   
    
 
     'clients'=>'العملاء',
@@ -69,6 +71,11 @@ return [
     'add_order'=>'اضف طلب',
     'quantity'=>'الكمية',
     'total'=>'الاجمالى',
+
+    'created_at'=>'توقيت الطلب',
+    'edited_at'=>'توقيت تعديل الطلب',
+
+    'clientName'=>'اسم العميل',
     
 
 ];
